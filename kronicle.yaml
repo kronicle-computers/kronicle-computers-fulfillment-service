@@ -4,36 +4,32 @@
 # [Kronicle](https://kronicle.tech)
 
 components:
-  - id: user-service
-    name: User Service
+  - id: fulfillment-service
+    name: Fulfillment Service
     type: microservice
     repo:
-      url: https://github.com/kronicle-computers/kronicle-computers-user-service.git
+      url: https://github.com/kronicle-computers/kronicle-computers-fulfillment-service.git
     description: |
-      The microservice that holds the user accounts for the customers of the fictional Kronicle Computer online shop
+      The microservice that fulfills orders for the customers of the fictional Kronicle Computer online shop
     tags:
       - backend
     teams:
-      - teamId: identity
-      - teamId: frontend
-        type: previous
-        description: |
-          The User Service was previously owned by the Frontend team but it is now owned by the Identity team
+      - teamId: fulfillment
     platform: kubernetes
     dependencies:
-      - targetComponentId: user-service-database
+      - targetComponentId: fulfillment-service-database
       - targetComponentId: zipkin
-  - id: user-service-database
-    name: User Service Database
+  - id: fulfillment-service-database
+    name: Fulfillment Service Database
     type: database
     repo:
-      url: https://github.com/kronicle-computers/kronicle-computers-user-service.git
+      url: https://github.com/kronicle-computers/kronicle-computers-fulfillment-service.git
     description: |
-      The database that holds the user account data for the [User Service](/components/user-service)
+      The database that ulfillment data for the [Fulfillment Service](/components/fulfillment-service)
     tags:
       - backend
     teams:
-      - teamId: identity
+      - teamId: fulfillment
     platform: kubernetes
     dependencies:
       - targetComponentId: main-mongodb-cluster
