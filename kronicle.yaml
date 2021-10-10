@@ -4,9 +4,10 @@
 # [Kronicle](https://kronicle.tech)
 
 components:
+
   - id: fulfillment-service
     name: Fulfillment Service
-    type: microservice
+    typeId: microservice
     repo:
       url: https://github.com/kronicle-computers/kronicle-computers-fulfillment-service.git
     description: |
@@ -17,11 +18,14 @@ components:
       - teamId: fulfillment
     platform: kubernetes
     dependencies:
+      - targetComponentId: order-queue
+        direction: inbound
       - targetComponentId: fulfillment-service-database
       - targetComponentId: zipkin
+
   - id: fulfillment-service-database
     name: Fulfillment Service Database
-    type: database
+    typeId: mongodb-database
     repo:
       url: https://github.com/kronicle-computers/kronicle-computers-fulfillment-service.git
     description: |
