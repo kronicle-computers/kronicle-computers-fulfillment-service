@@ -32,6 +32,7 @@ components:
       The database that ulfillment data for the [Fulfillment Service](/components/fulfillment-service)
     tags:
       - backend
+      - customer-pii-at-rest
     teams:
       - teamId: fulfillment
     platform: kubernetes
